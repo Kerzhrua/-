@@ -1,1 +1,10 @@
+MoveManager.cs和UseMove.cs挂载在场景的空物体上，其中MoveManager类是mono单例类
 
+在UseMove脚本上通过unity编辑挂载物体，随后启动即可
+
+具体是调用了单例类的Move方法将物体加入移动管理，通过改变参数影响物体的移动方式
+MoveManager.Instance.Move(gameObject1, new Vector3(0, 0, 0), new Vector3(4, 4, 4), 2.0f, true, MoveManager.MoveType.UniformSpeed);
+MoveManager.Instance.Move(gameObject2, new Vector3(0, 0, 0), new Vector3(24, -5, 4), 5.0f, true, MoveManager.MoveType.EaseIn);
+MoveManager.Instance.Move(gameObject3, new Vector3(0, 0, 0), new Vector3(4, 14, 4), 3.0f, true, MoveManager.MoveType.EaseOut);
+MoveManager.Instance.Move(gameObject4, new Vector3(0, 0, 0), new Vector3(-4, 4, 14), 6.0f, true, MoveManager.MoveType.EaseInOut);
+最后的参数是枚举，一共有四种分别是 匀速UniformSpeed、先快后慢EaseOut，先慢后快EaseIn，慢快慢EaseInOut
